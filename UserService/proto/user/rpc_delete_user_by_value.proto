@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb;
 
-option go_package = "github.com/Streamfair/streamfair_user_svc/common_proto/UserService/pb/user";
+option go_package = "github.com/Streamfair/common_proto/UserService/pb/user";
 
 message DeleteUserByValueRequest {
     string username = 1;

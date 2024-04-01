@@ -14,7 +14,7 @@ import "user/rpc_get_user_by_value.proto";
 import "user/rpc_list_users.proto";
 import "user/rpc_update_user.proto";
 
-option go_package = "github.com/Streamfair/streamfair_user_svc/common_proto/UserService/pb";
+option go_package = "github.com/Streamfair/common_proto/UserService/pb";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
