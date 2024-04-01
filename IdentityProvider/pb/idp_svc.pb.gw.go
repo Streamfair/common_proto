@@ -13,7 +13,7 @@ import (
 	"io"
 	"net/http"
 
-	login_0 "github.com/Streamfair/streamfair_idp/common_proto/IdentityProvider/pb/login"
+	"github.com/Streamfair/streamfair_idp/common_proto/IdentityProvider/pb/login"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"
@@ -33,7 +33,7 @@ var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
 func request_IdentityProvider_LoginUser_0(ctx context.Context, marshaler runtime.Marshaler, client IdentityProviderClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq login_0.LoginUserRequest
+	var protoReq login.LoginUserRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -46,7 +46,7 @@ func request_IdentityProvider_LoginUser_0(ctx context.Context, marshaler runtime
 }
 
 func local_request_IdentityProvider_LoginUser_0(ctx context.Context, marshaler runtime.Marshaler, server IdentityProviderServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq login_0.LoginUserRequest
+	var protoReq login.LoginUserRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
