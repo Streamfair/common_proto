@@ -7,7 +7,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 
 import "login/rpc_login_user.proto";
 
-option go_package = "github.com/Streamfair/streamfair_idp/common_proto/IdentityProvider/pb";
+option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {
