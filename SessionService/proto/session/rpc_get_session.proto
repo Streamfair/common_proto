@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pb;
+
+import "session/session.proto";
+
+option go_package = "github.com/Streamfair/streamfair_session_svc/common_proto/SessionService/pb/session";
+
+message GetSessionRequest {
+    string uuid = 1;
+}
+
+message GetSessionResponse {
+    Session session = 1;
+}
