@@ -4,7 +4,7 @@ package pb
 
 import (
 	context "context"
-	user "github.com/Streamfair/common_proto/UserService/pb/user"
+	user "github.com/Streamfair/streamfair_user_svc/common_proto/UserService/pb/user"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
