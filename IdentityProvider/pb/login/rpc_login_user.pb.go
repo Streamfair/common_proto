@@ -7,7 +7,7 @@
 package login
 
 import (
-	user "github.com/Streamfair/common_proto/UserService/pb/user"
+	user "github.com/Streamfair/streamfair_user_svc/common_proto/UserService/pb/user"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
