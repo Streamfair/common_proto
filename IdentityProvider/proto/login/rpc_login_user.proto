@@ -5,7 +5,7 @@ package pb;
 import "google/protobuf/timestamp.proto";
 import "UserService/proto/user/user.proto";
 
-option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/login";
+option go_package = "github.com/Streamfair/streamfair_idp/common_proto/IdentityProvider/pb/login";
 
 message LoginUserRequest {
   string username =  1;
