@@ -13,7 +13,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/Streamfair/common_proto/IdentityProvider/pb/login"
+	"github.com/Streamfair/streamfair_idp/pb/login"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"
