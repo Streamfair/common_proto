@@ -14,8 +14,7 @@ import (
 	"net/http"
 
 	"github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/refresh_token"
-	token_0 "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
-	"github.com/Streamfair/streamfair_token_svc/pb/token"
+	"github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"
@@ -61,7 +60,7 @@ func local_request_TokenService_CreateToken_0(ctx context.Context, marshaler run
 }
 
 func request_TokenService_GetTokenById_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.GetTokenByIdRequest
+	var protoReq token.GetTokenByIdRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -87,7 +86,7 @@ func request_TokenService_GetTokenById_0(ctx context.Context, marshaler runtime.
 }
 
 func local_request_TokenService_GetTokenById_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.GetTokenByIdRequest
+	var protoReq token.GetTokenByIdRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -113,7 +112,7 @@ func local_request_TokenService_GetTokenById_0(ctx context.Context, marshaler ru
 }
 
 func request_TokenService_GetTokenByValue_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.GetTokenByValueRequest
+	var protoReq token.GetTokenByValueRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -126,7 +125,7 @@ func request_TokenService_GetTokenByValue_0(ctx context.Context, marshaler runti
 }
 
 func local_request_TokenService_GetTokenByValue_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.GetTokenByValueRequest
+	var protoReq token.GetTokenByValueRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -139,7 +138,7 @@ func local_request_TokenService_GetTokenByValue_0(ctx context.Context, marshaler
 }
 
 func request_TokenService_RevokeTokenByValue_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.RevokeTokenByValueRequest
+	var protoReq token.RevokeTokenByValueRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -152,7 +151,7 @@ func request_TokenService_RevokeTokenByValue_0(ctx context.Context, marshaler ru
 }
 
 func local_request_TokenService_RevokeTokenByValue_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.RevokeTokenByValueRequest
+	var protoReq token.RevokeTokenByValueRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -165,7 +164,7 @@ func local_request_TokenService_RevokeTokenByValue_0(ctx context.Context, marsha
 }
 
 func request_TokenService_RevokeTokenById_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.RevokeTokenByIdRequest
+	var protoReq token.RevokeTokenByIdRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -191,7 +190,7 @@ func request_TokenService_RevokeTokenById_0(ctx context.Context, marshaler runti
 }
 
 func local_request_TokenService_RevokeTokenById_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.RevokeTokenByIdRequest
+	var protoReq token.RevokeTokenByIdRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -217,7 +216,7 @@ func local_request_TokenService_RevokeTokenById_0(ctx context.Context, marshaler
 }
 
 func request_TokenService_DeleteTokenById_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.DeleteTokenByIdRequest
+	var protoReq token.DeleteTokenByIdRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -243,7 +242,7 @@ func request_TokenService_DeleteTokenById_0(ctx context.Context, marshaler runti
 }
 
 func local_request_TokenService_DeleteTokenById_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.DeleteTokenByIdRequest
+	var protoReq token.DeleteTokenByIdRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -269,7 +268,7 @@ func local_request_TokenService_DeleteTokenById_0(ctx context.Context, marshaler
 }
 
 func request_TokenService_DeleteTokenByValue_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.DeleteTokenByValueRequest
+	var protoReq token.DeleteTokenByValueRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -282,7 +281,7 @@ func request_TokenService_DeleteTokenByValue_0(ctx context.Context, marshaler ru
 }
 
 func local_request_TokenService_DeleteTokenByValue_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.DeleteTokenByValueRequest
+	var protoReq token.DeleteTokenByValueRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -299,7 +298,7 @@ var (
 )
 
 func request_TokenService_ListRevokedTokens_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.ListRevokedTokensRequest
+	var protoReq token.ListRevokedTokensRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -315,7 +314,7 @@ func request_TokenService_ListRevokedTokens_0(ctx context.Context, marshaler run
 }
 
 func local_request_TokenService_ListRevokedTokens_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.ListRevokedTokensRequest
+	var protoReq token.ListRevokedTokensRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -335,7 +334,7 @@ var (
 )
 
 func request_TokenService_ListTokens_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.ListTokensRequest
+	var protoReq token.ListTokensRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -351,7 +350,7 @@ func request_TokenService_ListTokens_0(ctx context.Context, marshaler runtime.Ma
 }
 
 func local_request_TokenService_ListTokens_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.ListTokensRequest
+	var protoReq token.ListTokensRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -367,7 +366,7 @@ func local_request_TokenService_ListTokens_0(ctx context.Context, marshaler runt
 }
 
 func request_TokenService_UpdateToken_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.UpdateTokenRequest
+	var protoReq token.UpdateTokenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -380,7 +379,7 @@ func request_TokenService_UpdateToken_0(ctx context.Context, marshaler runtime.M
 }
 
 func local_request_TokenService_UpdateToken_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.UpdateTokenRequest
+	var protoReq token.UpdateTokenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -393,7 +392,7 @@ func local_request_TokenService_UpdateToken_0(ctx context.Context, marshaler run
 }
 
 func request_TokenService_VerifyToken_0(ctx context.Context, marshaler runtime.Marshaler, client TokenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.VerifyTokenRequest
+	var protoReq token.VerifyTokenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -406,7 +405,7 @@ func request_TokenService_VerifyToken_0(ctx context.Context, marshaler runtime.M
 }
 
 func local_request_TokenService_VerifyToken_0(ctx context.Context, marshaler runtime.Marshaler, server TokenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq token_0.VerifyTokenRequest
+	var protoReq token.VerifyTokenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {

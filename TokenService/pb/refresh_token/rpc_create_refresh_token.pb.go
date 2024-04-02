@@ -7,7 +7,6 @@
 package refresh_token
 
 import (
-	refresh_token "github.com/Streamfair/streamfair_token_svc/pb/refresh_token"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -81,8 +80,8 @@ type CreateRefreshTokenResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	RefreshToken *RefreshToken                      `protobuf:"bytes,1,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
-	Payload      *refresh_token.RefreshTokenPayload `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
+	RefreshToken *RefreshToken        `protobuf:"bytes,1,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
+	Payload      *RefreshTokenPayload `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
 }
 
 func (x *CreateRefreshTokenResponse) Reset() {
@@ -124,7 +123,7 @@ func (x *CreateRefreshTokenResponse) GetRefreshToken() *RefreshToken {
 	return nil
 }
 
-func (x *CreateRefreshTokenResponse) GetPayload() *refresh_token.RefreshTokenPayload {
+func (x *CreateRefreshTokenResponse) GetPayload() *RefreshTokenPayload {
 	if x != nil {
 		return x.Payload
 	}
@@ -178,10 +177,10 @@ func file_refresh_token_rpc_create_refresh_token_proto_rawDescGZIP() []byte {
 
 var file_refresh_token_rpc_create_refresh_token_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_refresh_token_rpc_create_refresh_token_proto_goTypes = []interface{}{
-	(*CreateRefreshTokenRequest)(nil),         // 0: pb.CreateRefreshTokenRequest
-	(*CreateRefreshTokenResponse)(nil),        // 1: pb.CreateRefreshTokenResponse
-	(*RefreshToken)(nil),                      // 2: pb.RefreshToken
-	(*refresh_token.RefreshTokenPayload)(nil), // 3: pb.RefreshTokenPayload
+	(*CreateRefreshTokenRequest)(nil),  // 0: pb.CreateRefreshTokenRequest
+	(*CreateRefreshTokenResponse)(nil), // 1: pb.CreateRefreshTokenResponse
+	(*RefreshToken)(nil),               // 2: pb.RefreshToken
+	(*RefreshTokenPayload)(nil),        // 3: pb.RefreshTokenPayload
 }
 var file_refresh_token_rpc_create_refresh_token_proto_depIdxs = []int32{
 	2, // 0: pb.CreateRefreshTokenResponse.refresh_token:type_name -> pb.RefreshToken
@@ -199,6 +198,7 @@ func file_refresh_token_rpc_create_refresh_token_proto_init() {
 		return
 	}
 	file_refresh_token_refresh_token_proto_init()
+	file_refresh_token_refresh_token_payload_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_refresh_token_rpc_create_refresh_token_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateRefreshTokenRequest); i {
