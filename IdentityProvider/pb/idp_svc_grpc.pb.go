@@ -4,7 +4,7 @@ package pb
 
 import (
 	context "context"
-	login "github.com/Streamfair/streamfair_idp/pb/login"
+	login "github.com/Streamfair/common_proto/IdentityProvider/pb/login"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
