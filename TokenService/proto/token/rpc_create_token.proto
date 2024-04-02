@@ -3,8 +3,9 @@ syntax = "proto3";
 package pb;
 
 import "token/token.proto";
+import "token/payload.proto";
 
-option go_package = "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token";
+option go_package = "github.com/Streamfair/streamfair_token_svc/pb/token";
 
 message CreateTokenRequest {
     int64 user_id = 1;
@@ -13,4 +14,5 @@ message CreateTokenRequest {
 
 message CreateTokenResponse {
     Token token = 1;
+    Payload payload = 2;
 }

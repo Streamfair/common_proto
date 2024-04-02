@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Streamfair/streamfair_token_svc/pb/token";
+
+message Payload {
+    string uuid = 1;
+    google.protobuf.Timestamp issued_at = 2;
+    google.protobuf.Timestamp expired_at = 3;
+}

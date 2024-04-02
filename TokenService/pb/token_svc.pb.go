@@ -8,7 +8,8 @@ package pb
 
 import (
 	refresh_token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/refresh_token"
-	token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	token1 "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	token "github.com/Streamfair/streamfair_token_svc/pb/token"
 	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -360,16 +361,16 @@ var file_token_svc_proto_rawDesc = []byte{
 
 var file_token_svc_proto_goTypes = []interface{}{
 	(*token.CreateTokenRequest)(nil),                       // 0: pb.CreateTokenRequest
-	(*token.GetTokenByIdRequest)(nil),                      // 1: pb.GetTokenByIdRequest
-	(*token.GetTokenByValueRequest)(nil),                   // 2: pb.GetTokenByValueRequest
-	(*token.RevokeTokenByValueRequest)(nil),                // 3: pb.RevokeTokenByValueRequest
-	(*token.RevokeTokenByIdRequest)(nil),                   // 4: pb.RevokeTokenByIdRequest
-	(*token.DeleteTokenByIdRequest)(nil),                   // 5: pb.DeleteTokenByIdRequest
-	(*token.DeleteTokenByValueRequest)(nil),                // 6: pb.DeleteTokenByValueRequest
-	(*token.ListRevokedTokensRequest)(nil),                 // 7: pb.ListRevokedTokensRequest
-	(*token.ListTokensRequest)(nil),                        // 8: pb.ListTokensRequest
-	(*token.UpdateTokenRequest)(nil),                       // 9: pb.UpdateTokenRequest
-	(*token.VerifyTokenRequest)(nil),                       // 10: pb.VerifyTokenRequest
+	(*token1.GetTokenByIdRequest)(nil),                     // 1: pb.GetTokenByIdRequest
+	(*token1.GetTokenByValueRequest)(nil),                  // 2: pb.GetTokenByValueRequest
+	(*token1.RevokeTokenByValueRequest)(nil),               // 3: pb.RevokeTokenByValueRequest
+	(*token1.RevokeTokenByIdRequest)(nil),                  // 4: pb.RevokeTokenByIdRequest
+	(*token1.DeleteTokenByIdRequest)(nil),                  // 5: pb.DeleteTokenByIdRequest
+	(*token1.DeleteTokenByValueRequest)(nil),               // 6: pb.DeleteTokenByValueRequest
+	(*token1.ListRevokedTokensRequest)(nil),                // 7: pb.ListRevokedTokensRequest
+	(*token1.ListTokensRequest)(nil),                       // 8: pb.ListTokensRequest
+	(*token1.UpdateTokenRequest)(nil),                      // 9: pb.UpdateTokenRequest
+	(*token1.VerifyTokenRequest)(nil),                      // 10: pb.VerifyTokenRequest
 	(*refresh_token.CreateRefreshTokenRequest)(nil),        // 11: pb.CreateRefreshTokenRequest
 	(*refresh_token.GetRefreshTokenByIdRequest)(nil),       // 12: pb.GetRefreshTokenByIdRequest
 	(*refresh_token.GetRefreshTokenByValueRequest)(nil),    // 13: pb.GetRefreshTokenByValueRequest
@@ -382,13 +383,13 @@ var file_token_svc_proto_goTypes = []interface{}{
 	(*refresh_token.UpdateRefreshTokenRequest)(nil),        // 20: pb.UpdateRefreshTokenRequest
 	(*refresh_token.VerifyRefreshTokenRequest)(nil),        // 21: pb.VerifyRefreshTokenRequest
 	(*token.CreateTokenResponse)(nil),                      // 22: pb.CreateTokenResponse
-	(*token.GetTokenByIdResponse)(nil),                     // 23: pb.GetTokenByIdResponse
-	(*token.GetTokenByValueResponse)(nil),                  // 24: pb.GetTokenByValueResponse
+	(*token1.GetTokenByIdResponse)(nil),                    // 23: pb.GetTokenByIdResponse
+	(*token1.GetTokenByValueResponse)(nil),                 // 24: pb.GetTokenByValueResponse
 	(*emptypb.Empty)(nil),                                  // 25: google.protobuf.Empty
-	(*token.ListRevokedTokensResponse)(nil),                // 26: pb.ListRevokedTokensResponse
-	(*token.ListTokensResponse)(nil),                       // 27: pb.ListTokensResponse
-	(*token.UpdateTokenResponse)(nil),                      // 28: pb.UpdateTokenResponse
-	(*token.VerifyTokenResponse)(nil),                      // 29: pb.VerifyTokenResponse
+	(*token1.ListRevokedTokensResponse)(nil),               // 26: pb.ListRevokedTokensResponse
+	(*token1.ListTokensResponse)(nil),                      // 27: pb.ListTokensResponse
+	(*token1.UpdateTokenResponse)(nil),                     // 28: pb.UpdateTokenResponse
+	(*token1.VerifyTokenResponse)(nil),                     // 29: pb.VerifyTokenResponse
 	(*refresh_token.CreateRefreshTokenResponse)(nil),       // 30: pb.CreateRefreshTokenResponse
 	(*refresh_token.GetRefreshTokenByIdResponse)(nil),      // 31: pb.GetRefreshTokenByIdResponse
 	(*refresh_token.GetRefreshTokenByValueResponse)(nil),   // 32: pb.GetRefreshTokenByValueResponse

@@ -5,7 +5,8 @@ package pb
 import (
 	context "context"
 	refresh_token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/refresh_token"
-	token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	token1 "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	token "github.com/Streamfair/streamfair_token_svc/pb/token"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -23,16 +24,16 @@ const _ = grpc.SupportPackageIsVersion7
 type TokenServiceClient interface {
 	// Tokens
 	CreateToken(ctx context.Context, in *token.CreateTokenRequest, opts ...grpc.CallOption) (*token.CreateTokenResponse, error)
-	GetTokenById(ctx context.Context, in *token.GetTokenByIdRequest, opts ...grpc.CallOption) (*token.GetTokenByIdResponse, error)
-	GetTokenByValue(ctx context.Context, in *token.GetTokenByValueRequest, opts ...grpc.CallOption) (*token.GetTokenByValueResponse, error)
-	RevokeTokenByValue(ctx context.Context, in *token.RevokeTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RevokeTokenById(ctx context.Context, in *token.RevokeTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	DeleteTokenById(ctx context.Context, in *token.DeleteTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	DeleteTokenByValue(ctx context.Context, in *token.DeleteTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ListRevokedTokens(ctx context.Context, in *token.ListRevokedTokensRequest, opts ...grpc.CallOption) (*token.ListRevokedTokensResponse, error)
-	ListTokens(ctx context.Context, in *token.ListTokensRequest, opts ...grpc.CallOption) (*token.ListTokensResponse, error)
-	UpdateToken(ctx context.Context, in *token.UpdateTokenRequest, opts ...grpc.CallOption) (*token.UpdateTokenResponse, error)
-	VerifyToken(ctx context.Context, in *token.VerifyTokenRequest, opts ...grpc.CallOption) (*token.VerifyTokenResponse, error)
+	GetTokenById(ctx context.Context, in *token1.GetTokenByIdRequest, opts ...grpc.CallOption) (*token1.GetTokenByIdResponse, error)
+	GetTokenByValue(ctx context.Context, in *token1.GetTokenByValueRequest, opts ...grpc.CallOption) (*token1.GetTokenByValueResponse, error)
+	RevokeTokenByValue(ctx context.Context, in *token1.RevokeTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RevokeTokenById(ctx context.Context, in *token1.RevokeTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteTokenById(ctx context.Context, in *token1.DeleteTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteTokenByValue(ctx context.Context, in *token1.DeleteTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ListRevokedTokens(ctx context.Context, in *token1.ListRevokedTokensRequest, opts ...grpc.CallOption) (*token1.ListRevokedTokensResponse, error)
+	ListTokens(ctx context.Context, in *token1.ListTokensRequest, opts ...grpc.CallOption) (*token1.ListTokensResponse, error)
+	UpdateToken(ctx context.Context, in *token1.UpdateTokenRequest, opts ...grpc.CallOption) (*token1.UpdateTokenResponse, error)
+	VerifyToken(ctx context.Context, in *token1.VerifyTokenRequest, opts ...grpc.CallOption) (*token1.VerifyTokenResponse, error)
 	// Refresh tokens
 	CreateRefreshToken(ctx context.Context, in *refresh_token.CreateRefreshTokenRequest, opts ...grpc.CallOption) (*refresh_token.CreateRefreshTokenResponse, error)
 	GetRefreshTokenById(ctx context.Context, in *refresh_token.GetRefreshTokenByIdRequest, opts ...grpc.CallOption) (*refresh_token.GetRefreshTokenByIdResponse, error)
@@ -64,8 +65,8 @@ func (c *tokenServiceClient) CreateToken(ctx context.Context, in *token.CreateTo
 	return out, nil
 }
 
-func (c *tokenServiceClient) GetTokenById(ctx context.Context, in *token.GetTokenByIdRequest, opts ...grpc.CallOption) (*token.GetTokenByIdResponse, error) {
-	out := new(token.GetTokenByIdResponse)
+func (c *tokenServiceClient) GetTokenById(ctx context.Context, in *token1.GetTokenByIdRequest, opts ...grpc.CallOption) (*token1.GetTokenByIdResponse, error) {
+	out := new(token1.GetTokenByIdResponse)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/GetTokenById", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -73,8 +74,8 @@ func (c *tokenServiceClient) GetTokenById(ctx context.Context, in *token.GetToke
 	return out, nil
 }
 
-func (c *tokenServiceClient) GetTokenByValue(ctx context.Context, in *token.GetTokenByValueRequest, opts ...grpc.CallOption) (*token.GetTokenByValueResponse, error) {
-	out := new(token.GetTokenByValueResponse)
+func (c *tokenServiceClient) GetTokenByValue(ctx context.Context, in *token1.GetTokenByValueRequest, opts ...grpc.CallOption) (*token1.GetTokenByValueResponse, error) {
+	out := new(token1.GetTokenByValueResponse)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/GetTokenByValue", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -82,7 +83,7 @@ func (c *tokenServiceClient) GetTokenByValue(ctx context.Context, in *token.GetT
 	return out, nil
 }
 
-func (c *tokenServiceClient) RevokeTokenByValue(ctx context.Context, in *token.RevokeTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *tokenServiceClient) RevokeTokenByValue(ctx context.Context, in *token1.RevokeTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/RevokeTokenByValue", in, out, opts...)
 	if err != nil {
@@ -91,7 +92,7 @@ func (c *tokenServiceClient) RevokeTokenByValue(ctx context.Context, in *token.R
 	return out, nil
 }
 
-func (c *tokenServiceClient) RevokeTokenById(ctx context.Context, in *token.RevokeTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *tokenServiceClient) RevokeTokenById(ctx context.Context, in *token1.RevokeTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/RevokeTokenById", in, out, opts...)
 	if err != nil {
@@ -100,7 +101,7 @@ func (c *tokenServiceClient) RevokeTokenById(ctx context.Context, in *token.Revo
 	return out, nil
 }
 
-func (c *tokenServiceClient) DeleteTokenById(ctx context.Context, in *token.DeleteTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *tokenServiceClient) DeleteTokenById(ctx context.Context, in *token1.DeleteTokenByIdRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/DeleteTokenById", in, out, opts...)
 	if err != nil {
@@ -109,7 +110,7 @@ func (c *tokenServiceClient) DeleteTokenById(ctx context.Context, in *token.Dele
 	return out, nil
 }
 
-func (c *tokenServiceClient) DeleteTokenByValue(ctx context.Context, in *token.DeleteTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *tokenServiceClient) DeleteTokenByValue(ctx context.Context, in *token1.DeleteTokenByValueRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/DeleteTokenByValue", in, out, opts...)
 	if err != nil {
@@ -118,8 +119,8 @@ func (c *tokenServiceClient) DeleteTokenByValue(ctx context.Context, in *token.D
 	return out, nil
 }
 
-func (c *tokenServiceClient) ListRevokedTokens(ctx context.Context, in *token.ListRevokedTokensRequest, opts ...grpc.CallOption) (*token.ListRevokedTokensResponse, error) {
-	out := new(token.ListRevokedTokensResponse)
+func (c *tokenServiceClient) ListRevokedTokens(ctx context.Context, in *token1.ListRevokedTokensRequest, opts ...grpc.CallOption) (*token1.ListRevokedTokensResponse, error) {
+	out := new(token1.ListRevokedTokensResponse)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/ListRevokedTokens", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -127,8 +128,8 @@ func (c *tokenServiceClient) ListRevokedTokens(ctx context.Context, in *token.Li
 	return out, nil
 }
 
-func (c *tokenServiceClient) ListTokens(ctx context.Context, in *token.ListTokensRequest, opts ...grpc.CallOption) (*token.ListTokensResponse, error) {
-	out := new(token.ListTokensResponse)
+func (c *tokenServiceClient) ListTokens(ctx context.Context, in *token1.ListTokensRequest, opts ...grpc.CallOption) (*token1.ListTokensResponse, error) {
+	out := new(token1.ListTokensResponse)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/ListTokens", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -136,8 +137,8 @@ func (c *tokenServiceClient) ListTokens(ctx context.Context, in *token.ListToken
 	return out, nil
 }
 
-func (c *tokenServiceClient) UpdateToken(ctx context.Context, in *token.UpdateTokenRequest, opts ...grpc.CallOption) (*token.UpdateTokenResponse, error) {
-	out := new(token.UpdateTokenResponse)
+func (c *tokenServiceClient) UpdateToken(ctx context.Context, in *token1.UpdateTokenRequest, opts ...grpc.CallOption) (*token1.UpdateTokenResponse, error) {
+	out := new(token1.UpdateTokenResponse)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/UpdateToken", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -145,8 +146,8 @@ func (c *tokenServiceClient) UpdateToken(ctx context.Context, in *token.UpdateTo
 	return out, nil
 }
 
-func (c *tokenServiceClient) VerifyToken(ctx context.Context, in *token.VerifyTokenRequest, opts ...grpc.CallOption) (*token.VerifyTokenResponse, error) {
-	out := new(token.VerifyTokenResponse)
+func (c *tokenServiceClient) VerifyToken(ctx context.Context, in *token1.VerifyTokenRequest, opts ...grpc.CallOption) (*token1.VerifyTokenResponse, error) {
+	out := new(token1.VerifyTokenResponse)
 	err := c.cc.Invoke(ctx, "/pb.TokenService/VerifyToken", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -259,16 +260,16 @@ func (c *tokenServiceClient) VerifyRefreshToken(ctx context.Context, in *refresh
 type TokenServiceServer interface {
 	// Tokens
 	CreateToken(context.Context, *token.CreateTokenRequest) (*token.CreateTokenResponse, error)
-	GetTokenById(context.Context, *token.GetTokenByIdRequest) (*token.GetTokenByIdResponse, error)
-	GetTokenByValue(context.Context, *token.GetTokenByValueRequest) (*token.GetTokenByValueResponse, error)
-	RevokeTokenByValue(context.Context, *token.RevokeTokenByValueRequest) (*emptypb.Empty, error)
-	RevokeTokenById(context.Context, *token.RevokeTokenByIdRequest) (*emptypb.Empty, error)
-	DeleteTokenById(context.Context, *token.DeleteTokenByIdRequest) (*emptypb.Empty, error)
-	DeleteTokenByValue(context.Context, *token.DeleteTokenByValueRequest) (*emptypb.Empty, error)
-	ListRevokedTokens(context.Context, *token.ListRevokedTokensRequest) (*token.ListRevokedTokensResponse, error)
-	ListTokens(context.Context, *token.ListTokensRequest) (*token.ListTokensResponse, error)
-	UpdateToken(context.Context, *token.UpdateTokenRequest) (*token.UpdateTokenResponse, error)
-	VerifyToken(context.Context, *token.VerifyTokenRequest) (*token.VerifyTokenResponse, error)
+	GetTokenById(context.Context, *token1.GetTokenByIdRequest) (*token1.GetTokenByIdResponse, error)
+	GetTokenByValue(context.Context, *token1.GetTokenByValueRequest) (*token1.GetTokenByValueResponse, error)
+	RevokeTokenByValue(context.Context, *token1.RevokeTokenByValueRequest) (*emptypb.Empty, error)
+	RevokeTokenById(context.Context, *token1.RevokeTokenByIdRequest) (*emptypb.Empty, error)
+	DeleteTokenById(context.Context, *token1.DeleteTokenByIdRequest) (*emptypb.Empty, error)
+	DeleteTokenByValue(context.Context, *token1.DeleteTokenByValueRequest) (*emptypb.Empty, error)
+	ListRevokedTokens(context.Context, *token1.ListRevokedTokensRequest) (*token1.ListRevokedTokensResponse, error)
+	ListTokens(context.Context, *token1.ListTokensRequest) (*token1.ListTokensResponse, error)
+	UpdateToken(context.Context, *token1.UpdateTokenRequest) (*token1.UpdateTokenResponse, error)
+	VerifyToken(context.Context, *token1.VerifyTokenRequest) (*token1.VerifyTokenResponse, error)
 	// Refresh tokens
 	CreateRefreshToken(context.Context, *refresh_token.CreateRefreshTokenRequest) (*refresh_token.CreateRefreshTokenResponse, error)
 	GetRefreshTokenById(context.Context, *refresh_token.GetRefreshTokenByIdRequest) (*refresh_token.GetRefreshTokenByIdResponse, error)
@@ -291,34 +292,34 @@ type UnimplementedTokenServiceServer struct {
 func (UnimplementedTokenServiceServer) CreateToken(context.Context, *token.CreateTokenRequest) (*token.CreateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateToken not implemented")
 }
-func (UnimplementedTokenServiceServer) GetTokenById(context.Context, *token.GetTokenByIdRequest) (*token.GetTokenByIdResponse, error) {
+func (UnimplementedTokenServiceServer) GetTokenById(context.Context, *token1.GetTokenByIdRequest) (*token1.GetTokenByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTokenById not implemented")
 }
-func (UnimplementedTokenServiceServer) GetTokenByValue(context.Context, *token.GetTokenByValueRequest) (*token.GetTokenByValueResponse, error) {
+func (UnimplementedTokenServiceServer) GetTokenByValue(context.Context, *token1.GetTokenByValueRequest) (*token1.GetTokenByValueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTokenByValue not implemented")
 }
-func (UnimplementedTokenServiceServer) RevokeTokenByValue(context.Context, *token.RevokeTokenByValueRequest) (*emptypb.Empty, error) {
+func (UnimplementedTokenServiceServer) RevokeTokenByValue(context.Context, *token1.RevokeTokenByValueRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RevokeTokenByValue not implemented")
 }
-func (UnimplementedTokenServiceServer) RevokeTokenById(context.Context, *token.RevokeTokenByIdRequest) (*emptypb.Empty, error) {
+func (UnimplementedTokenServiceServer) RevokeTokenById(context.Context, *token1.RevokeTokenByIdRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RevokeTokenById not implemented")
 }
-func (UnimplementedTokenServiceServer) DeleteTokenById(context.Context, *token.DeleteTokenByIdRequest) (*emptypb.Empty, error) {
+func (UnimplementedTokenServiceServer) DeleteTokenById(context.Context, *token1.DeleteTokenByIdRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTokenById not implemented")
 }
-func (UnimplementedTokenServiceServer) DeleteTokenByValue(context.Context, *token.DeleteTokenByValueRequest) (*emptypb.Empty, error) {
+func (UnimplementedTokenServiceServer) DeleteTokenByValue(context.Context, *token1.DeleteTokenByValueRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTokenByValue not implemented")
 }
-func (UnimplementedTokenServiceServer) ListRevokedTokens(context.Context, *token.ListRevokedTokensRequest) (*token.ListRevokedTokensResponse, error) {
+func (UnimplementedTokenServiceServer) ListRevokedTokens(context.Context, *token1.ListRevokedTokensRequest) (*token1.ListRevokedTokensResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRevokedTokens not implemented")
 }
-func (UnimplementedTokenServiceServer) ListTokens(context.Context, *token.ListTokensRequest) (*token.ListTokensResponse, error) {
+func (UnimplementedTokenServiceServer) ListTokens(context.Context, *token1.ListTokensRequest) (*token1.ListTokensResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTokens not implemented")
 }
-func (UnimplementedTokenServiceServer) UpdateToken(context.Context, *token.UpdateTokenRequest) (*token.UpdateTokenResponse, error) {
+func (UnimplementedTokenServiceServer) UpdateToken(context.Context, *token1.UpdateTokenRequest) (*token1.UpdateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateToken not implemented")
 }
-func (UnimplementedTokenServiceServer) VerifyToken(context.Context, *token.VerifyTokenRequest) (*token.VerifyTokenResponse, error) {
+func (UnimplementedTokenServiceServer) VerifyToken(context.Context, *token1.VerifyTokenRequest) (*token1.VerifyTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyToken not implemented")
 }
 func (UnimplementedTokenServiceServer) CreateRefreshToken(context.Context, *refresh_token.CreateRefreshTokenRequest) (*refresh_token.CreateRefreshTokenResponse, error) {
@@ -386,7 +387,7 @@ func _TokenService_CreateToken_Handler(srv interface{}, ctx context.Context, dec
 }
 
 func _TokenService_GetTokenById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.GetTokenByIdRequest)
+	in := new(token1.GetTokenByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -398,13 +399,13 @@ func _TokenService_GetTokenById_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: "/pb.TokenService/GetTokenById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).GetTokenById(ctx, req.(*token.GetTokenByIdRequest))
+		return srv.(TokenServiceServer).GetTokenById(ctx, req.(*token1.GetTokenByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_GetTokenByValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.GetTokenByValueRequest)
+	in := new(token1.GetTokenByValueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -416,13 +417,13 @@ func _TokenService_GetTokenByValue_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/pb.TokenService/GetTokenByValue",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).GetTokenByValue(ctx, req.(*token.GetTokenByValueRequest))
+		return srv.(TokenServiceServer).GetTokenByValue(ctx, req.(*token1.GetTokenByValueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_RevokeTokenByValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.RevokeTokenByValueRequest)
+	in := new(token1.RevokeTokenByValueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -434,13 +435,13 @@ func _TokenService_RevokeTokenByValue_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/pb.TokenService/RevokeTokenByValue",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).RevokeTokenByValue(ctx, req.(*token.RevokeTokenByValueRequest))
+		return srv.(TokenServiceServer).RevokeTokenByValue(ctx, req.(*token1.RevokeTokenByValueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_RevokeTokenById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.RevokeTokenByIdRequest)
+	in := new(token1.RevokeTokenByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -452,13 +453,13 @@ func _TokenService_RevokeTokenById_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/pb.TokenService/RevokeTokenById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).RevokeTokenById(ctx, req.(*token.RevokeTokenByIdRequest))
+		return srv.(TokenServiceServer).RevokeTokenById(ctx, req.(*token1.RevokeTokenByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_DeleteTokenById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.DeleteTokenByIdRequest)
+	in := new(token1.DeleteTokenByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -470,13 +471,13 @@ func _TokenService_DeleteTokenById_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/pb.TokenService/DeleteTokenById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).DeleteTokenById(ctx, req.(*token.DeleteTokenByIdRequest))
+		return srv.(TokenServiceServer).DeleteTokenById(ctx, req.(*token1.DeleteTokenByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_DeleteTokenByValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.DeleteTokenByValueRequest)
+	in := new(token1.DeleteTokenByValueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -488,13 +489,13 @@ func _TokenService_DeleteTokenByValue_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/pb.TokenService/DeleteTokenByValue",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).DeleteTokenByValue(ctx, req.(*token.DeleteTokenByValueRequest))
+		return srv.(TokenServiceServer).DeleteTokenByValue(ctx, req.(*token1.DeleteTokenByValueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_ListRevokedTokens_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.ListRevokedTokensRequest)
+	in := new(token1.ListRevokedTokensRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -506,13 +507,13 @@ func _TokenService_ListRevokedTokens_Handler(srv interface{}, ctx context.Contex
 		FullMethod: "/pb.TokenService/ListRevokedTokens",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).ListRevokedTokens(ctx, req.(*token.ListRevokedTokensRequest))
+		return srv.(TokenServiceServer).ListRevokedTokens(ctx, req.(*token1.ListRevokedTokensRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_ListTokens_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.ListTokensRequest)
+	in := new(token1.ListTokensRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -524,13 +525,13 @@ func _TokenService_ListTokens_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: "/pb.TokenService/ListTokens",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).ListTokens(ctx, req.(*token.ListTokensRequest))
+		return srv.(TokenServiceServer).ListTokens(ctx, req.(*token1.ListTokensRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_UpdateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.UpdateTokenRequest)
+	in := new(token1.UpdateTokenRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -542,13 +543,13 @@ func _TokenService_UpdateToken_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: "/pb.TokenService/UpdateToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).UpdateToken(ctx, req.(*token.UpdateTokenRequest))
+		return srv.(TokenServiceServer).UpdateToken(ctx, req.(*token1.UpdateTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TokenService_VerifyToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(token.VerifyTokenRequest)
+	in := new(token1.VerifyTokenRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -560,7 +561,7 @@ func _TokenService_VerifyToken_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: "/pb.TokenService/VerifyToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TokenServiceServer).VerifyToken(ctx, req.(*token.VerifyTokenRequest))
+		return srv.(TokenServiceServer).VerifyToken(ctx, req.(*token1.VerifyTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
