@@ -7,7 +7,7 @@
 package token
 
 import (
-	token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	token "github.com/Streamfair/streamfair_token_svc/pb/token"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -81,8 +81,8 @@ type CreateTokenResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Token   *token.Token  `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	Payload *TokenPayload `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
+	Token   *Token              `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	Payload *token.TokenPayload `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
 }
 
 func (x *CreateTokenResponse) Reset() {
@@ -117,14 +117,14 @@ func (*CreateTokenResponse) Descriptor() ([]byte, []int) {
 	return file_token_rpc_create_token_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateTokenResponse) GetToken() *token.Token {
+func (x *CreateTokenResponse) GetToken() *Token {
 	if x != nil {
 		return x.Token
 	}
 	return nil
 }
 
-func (x *CreateTokenResponse) GetPayload() *TokenPayload {
+func (x *CreateTokenResponse) GetPayload() *token.TokenPayload {
 	if x != nil {
 		return x.Payload
 	}
@@ -173,8 +173,8 @@ var file_token_rpc_create_token_proto_msgTypes = make([]protoimpl.MessageInfo, 2
 var file_token_rpc_create_token_proto_goTypes = []interface{}{
 	(*CreateTokenRequest)(nil),  // 0: pb.CreateTokenRequest
 	(*CreateTokenResponse)(nil), // 1: pb.CreateTokenResponse
-	(*token.Token)(nil),         // 2: pb.Token
-	(*TokenPayload)(nil),        // 3: pb.TokenPayload
+	(*Token)(nil),               // 2: pb.Token
+	(*token.TokenPayload)(nil),  // 3: pb.TokenPayload
 }
 var file_token_rpc_create_token_proto_depIdxs = []int32{
 	2, // 0: pb.CreateTokenResponse.token:type_name -> pb.Token
@@ -191,7 +191,7 @@ func file_token_rpc_create_token_proto_init() {
 	if File_token_rpc_create_token_proto != nil {
 		return
 	}
-	file_token_token_payload_proto_init()
+	file_token_token_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_token_rpc_create_token_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateTokenRequest); i {
