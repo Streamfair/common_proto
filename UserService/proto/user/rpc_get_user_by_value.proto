@@ -4,7 +4,7 @@ package pb;
 
 import "user/user.proto";
 
-option go_package = "github.com/Streamfair/streamfair_user_svc/common_proto/UserService/pb/user";
+option go_package = "github.com/Streamfair/streamfair_user_svc/_common_proto/UserService/pb/user";
 
 message GetUserByValueRequest {
     string username = 1;
