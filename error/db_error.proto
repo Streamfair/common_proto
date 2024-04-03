@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb;
 
-option go_package = "github.com/Streamfair/streamfair_session_svc/pb";
+option go_package = "github.com/Streamfair/common_proto/error";
 
 // DatabaseError represents a database-related error with details.
 message DatabaseError {
