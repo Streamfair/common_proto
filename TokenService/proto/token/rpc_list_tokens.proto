@@ -4,7 +4,7 @@ package pb;
 
 import "token/token.proto";
 
-option go_package = "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token";
+option go_package = "github.com/Streamfair/common_proto/TokenService/pb/token";
 
 message ListTokensRequest {
     int32 limit = 1;

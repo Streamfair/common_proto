@@ -5,7 +5,7 @@ package pb;
 import "refresh_token/refresh_token.proto";
 import "refresh_token/refresh_token_payload.proto";
 
-option go_package = "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/refresh_token";
+option go_package = "github.com/Streamfair/common_proto/TokenService/pb/refresh_token";
 
 message CreateRefreshTokenRequest {
     int64 user_id = 1;

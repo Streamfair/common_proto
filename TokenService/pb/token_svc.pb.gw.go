@@ -13,8 +13,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/refresh_token"
-	"github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	"github.com/Streamfair/common_proto/TokenService/pb/refresh_token"
+	"github.com/Streamfair/common_proto/TokenService/pb/token"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"

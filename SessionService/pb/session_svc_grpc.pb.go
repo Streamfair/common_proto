@@ -4,7 +4,7 @@ package pb
 
 import (
 	context "context"
-	session "github.com/Streamfair/streamfair_session_svc/common_proto/SessionService/pb/session"
+	session "github.com/Streamfair/common_proto/SessionService/pb/session"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

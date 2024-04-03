@@ -4,7 +4,7 @@ package pb;
 
 import "session/session.proto";
 
-option go_package = "github.com/Streamfair/streamfair_session_svc/common_proto/SessionService/pb/session";
+option go_package = "github.com/Streamfair/common_proto/SessionService/pb/session";
 
 message VerifySessionRequest {
     string uuid = 1;

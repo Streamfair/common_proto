@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb;
 
-option go_package = "github.com/Streamfair/streamfair_session_svc/common_proto/SessionService/pb/session";
+option go_package = "github.com/Streamfair/common_proto/SessionService/pb/session";
 
 message RevokeSessionRequest {
     string uuid = 1;

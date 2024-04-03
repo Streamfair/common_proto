@@ -13,7 +13,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/Streamfair/streamfair_session_svc/common_proto/SessionService/pb/session"
+	"github.com/Streamfair/common_proto/SessionService/pb/session"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"

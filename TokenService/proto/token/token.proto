@@ -4,7 +4,7 @@ package pb;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token";
+option go_package = "github.com/Streamfair/common_proto/TokenService/pb/token";
 
 message Token {
     int64 id = 1;

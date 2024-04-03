@@ -13,7 +13,7 @@ import "session/rpc_revoke_session.proto";
 import "session/rpc_delete_session.proto";
 import "session/rpc_verify_session.proto";
 
-option go_package = "github.com/Streamfair/streamfair_session_svc/common_proto/SessionService/pb";
+option go_package = "github.com/Streamfair/common_proto/SessionService/pb";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 	info: {

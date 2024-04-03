@@ -4,8 +4,8 @@ package pb
 
 import (
 	context "context"
-	refresh_token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/refresh_token"
-	token "github.com/Streamfair/streamfair_token_svc/common_proto/TokenService/pb/token"
+	refresh_token "github.com/Streamfair/common_proto/TokenService/pb/refresh_token"
+	token "github.com/Streamfair/common_proto/TokenService/pb/token"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
