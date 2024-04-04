@@ -7,7 +7,6 @@
 package user
 
 import (
-	user "github.com/Streamfair/common_proto/UserService/pb/user"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -121,7 +120,7 @@ type CreateUserResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User *user.User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 }
 
 func (x *CreateUserResponse) Reset() {
@@ -156,7 +155,7 @@ func (*CreateUserResponse) Descriptor() ([]byte, []int) {
 	return file_user_rpc_create_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateUserResponse) GetUser() *user.User {
+func (x *CreateUserResponse) GetUser() *User {
 	if x != nil {
 		return x.User
 	}
@@ -208,7 +207,7 @@ var file_user_rpc_create_user_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_user_rpc_create_user_proto_goTypes = []interface{}{
 	(*CreateUserRequest)(nil),  // 0: pb.CreateUserRequest
 	(*CreateUserResponse)(nil), // 1: pb.CreateUserResponse
-	(*user.User)(nil),          // 2: pb.User
+	(*User)(nil),               // 2: pb.User
 }
 var file_user_rpc_create_user_proto_depIdxs = []int32{
 	2, // 0: pb.CreateUserResponse.user:type_name -> pb.User
@@ -224,6 +223,7 @@ func file_user_rpc_create_user_proto_init() {
 	if File_user_rpc_create_user_proto != nil {
 		return
 	}
+	file_user_user_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_user_rpc_create_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateUserRequest); i {
