@@ -5,6 +5,7 @@ package pb
 import (
 	context "context"
 	login "github.com/Streamfair/common_proto/IdentityProvider/pb/login"
+	register "github.com/Streamfair/common_proto/IdentityProvider/pb/register"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -19,8 +20,10 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type IdentityProviderClient interface {
-	// Login attempts to authenticate a user and returns a token if successful.
+	// /login_user attempts to authenticate and create a session for a user and returns the session and the user if successful.
 	LoginUser(ctx context.Context, in *login.LoginUserRequest, opts ...grpc.CallOption) (*login.LoginUserResponse, error)
+	// /register_user attempts to create a user and returns the user if successful.
+	RegisterUser(ctx context.Context, in *register.RegisterUserRequest, opts ...grpc.CallOption) (*register.RegisterUserResponse, error)
 }
 
 type identityProviderClient struct {
@@ -40,12 +43,23 @@ func (c *identityProviderClient) LoginUser(ctx context.Context, in *login.LoginU
 	return out, nil
 }
 
+func (c *identityProviderClient) RegisterUser(ctx context.Context, in *register.RegisterUserRequest, opts ...grpc.CallOption) (*register.RegisterUserResponse, error) {
+	out := new(register.RegisterUserResponse)
+	err := c.cc.Invoke(ctx, "/pb.IdentityProvider/RegisterUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // IdentityProviderServer is the server API for IdentityProvider service.
 // All implementations must embed UnimplementedIdentityProviderServer
 // for forward compatibility
 type IdentityProviderServer interface {
-	// Login attempts to authenticate a user and returns a token if successful.
+	// /login_user attempts to authenticate and create a session for a user and returns the session and the user if successful.
 	LoginUser(context.Context, *login.LoginUserRequest) (*login.LoginUserResponse, error)
+	// /register_user attempts to create a user and returns the user if successful.
+	RegisterUser(context.Context, *register.RegisterUserRequest) (*register.RegisterUserResponse, error)
 	mustEmbedUnimplementedIdentityProviderServer()
 }
 
@@ -55,6 +69,9 @@ type UnimplementedIdentityProviderServer struct {
 
 func (UnimplementedIdentityProviderServer) LoginUser(context.Context, *login.LoginUserRequest) (*login.LoginUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoginUser not implemented")
+}
+func (UnimplementedIdentityProviderServer) RegisterUser(context.Context, *register.RegisterUserRequest) (*register.RegisterUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
 }
 func (UnimplementedIdentityProviderServer) mustEmbedUnimplementedIdentityProviderServer() {}
 
@@ -87,6 +104,24 @@ func _IdentityProvider_LoginUser_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _IdentityProvider_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(register.RegisterUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IdentityProviderServer).RegisterUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.IdentityProvider/RegisterUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IdentityProviderServer).RegisterUser(ctx, req.(*register.RegisterUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // IdentityProvider_ServiceDesc is the grpc.ServiceDesc for IdentityProvider service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -97,6 +132,10 @@ var IdentityProvider_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LoginUser",
 			Handler:    _IdentityProvider_LoginUser_Handler,
+		},
+		{
+			MethodName: "RegisterUser",
+			Handler:    _IdentityProvider_RegisterUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
