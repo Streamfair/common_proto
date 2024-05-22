@@ -7,7 +7,6 @@
 package register
 
 import (
-	user_registered "github.com/Streamfair/common_proto/IdentityProvider/pb/user_registered"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/known/timestamppb"
@@ -122,7 +121,7 @@ type RegisterUserResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User *user_registered.UserRegistered `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	User *UserRegistered `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 }
 
 func (x *RegisterUserResponse) Reset() {
@@ -157,7 +156,7 @@ func (*RegisterUserResponse) Descriptor() ([]byte, []int) {
 	return file_register_rpc_register_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *RegisterUserResponse) GetUser() *user_registered.UserRegistered {
+func (x *RegisterUserResponse) GetUser() *UserRegistered {
 	if x != nil {
 		return x.User
 	}
@@ -212,9 +211,9 @@ func file_register_rpc_register_user_proto_rawDescGZIP() []byte {
 
 var file_register_rpc_register_user_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_register_rpc_register_user_proto_goTypes = []interface{}{
-	(*RegisterUserRequest)(nil),            // 0: pb.RegisterUserRequest
-	(*RegisterUserResponse)(nil),           // 1: pb.RegisterUserResponse
-	(*user_registered.UserRegistered)(nil), // 2: pb.User_registered
+	(*RegisterUserRequest)(nil),  // 0: pb.RegisterUserRequest
+	(*RegisterUserResponse)(nil), // 1: pb.RegisterUserResponse
+	(*UserRegistered)(nil),       // 2: pb.User_registered
 }
 var file_register_rpc_register_user_proto_depIdxs = []int32{
 	2, // 0: pb.RegisterUserResponse.user:type_name -> pb.User_registered
@@ -230,6 +229,7 @@ func file_register_rpc_register_user_proto_init() {
 	if File_register_rpc_register_user_proto != nil {
 		return
 	}
+	file_register_user_registered_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_register_rpc_register_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RegisterUserRequest); i {

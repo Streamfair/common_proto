@@ -3,7 +3,7 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
-option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/user_login.proto";
+option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/login";
 
 message User_login {
      int64                     id = 1;

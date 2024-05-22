@@ -7,7 +7,6 @@
 package login
 
 import (
-	user_login_proto "github.com/Streamfair/common_proto/IdentityProvider/pb/user_login.proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -82,12 +81,12 @@ type LoginUserResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User                  *user_login_proto.UserLogin `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	SessionId             string                      `protobuf:"bytes,2,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
-	AccessToken           string                      `protobuf:"bytes,3,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
-	RefreshToken          string                      `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
-	AccessTokenExpiresAt  *timestamppb.Timestamp      `protobuf:"bytes,5,opt,name=access_token_expires_at,json=accessTokenExpiresAt,proto3" json:"access_token_expires_at,omitempty"`
-	RefreshTokenExpiresAt *timestamppb.Timestamp      `protobuf:"bytes,6,opt,name=refresh_token_expires_at,json=refreshTokenExpiresAt,proto3" json:"refresh_token_expires_at,omitempty"`
+	User                  *UserLogin             `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	SessionId             string                 `protobuf:"bytes,2,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	AccessToken           string                 `protobuf:"bytes,3,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
+	RefreshToken          string                 `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
+	AccessTokenExpiresAt  *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=access_token_expires_at,json=accessTokenExpiresAt,proto3" json:"access_token_expires_at,omitempty"`
+	RefreshTokenExpiresAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=refresh_token_expires_at,json=refreshTokenExpiresAt,proto3" json:"refresh_token_expires_at,omitempty"`
 }
 
 func (x *LoginUserResponse) Reset() {
@@ -122,7 +121,7 @@ func (*LoginUserResponse) Descriptor() ([]byte, []int) {
 	return file_login_rpc_login_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *LoginUserResponse) GetUser() *user_login_proto.UserLogin {
+func (x *LoginUserResponse) GetUser() *UserLogin {
 	if x != nil {
 		return x.User
 	}
@@ -219,10 +218,10 @@ func file_login_rpc_login_user_proto_rawDescGZIP() []byte {
 
 var file_login_rpc_login_user_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_login_rpc_login_user_proto_goTypes = []interface{}{
-	(*LoginUserRequest)(nil),           // 0: pb.LoginUserRequest
-	(*LoginUserResponse)(nil),          // 1: pb.LoginUserResponse
-	(*user_login_proto.UserLogin)(nil), // 2: pb.User_login
-	(*timestamppb.Timestamp)(nil),      // 3: google.protobuf.Timestamp
+	(*LoginUserRequest)(nil),      // 0: pb.LoginUserRequest
+	(*LoginUserResponse)(nil),     // 1: pb.LoginUserResponse
+	(*UserLogin)(nil),             // 2: pb.User_login
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_login_rpc_login_user_proto_depIdxs = []int32{
 	2, // 0: pb.LoginUserResponse.user:type_name -> pb.User_login
@@ -240,6 +239,7 @@ func file_login_rpc_login_user_proto_init() {
 	if File_login_rpc_login_user_proto != nil {
 		return
 	}
+	file_login_user_login_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_login_rpc_login_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*LoginUserRequest); i {
