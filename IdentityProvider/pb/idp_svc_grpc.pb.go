@@ -20,9 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type IdentityProviderClient interface {
-	// /login_user attempts to authenticate and create a session for a user and returns the session and the user if successful.
 	LoginUser(ctx context.Context, in *login.LoginUserRequest, opts ...grpc.CallOption) (*login.LoginUserResponse, error)
-	// /register_user attempts to create a user and returns the user if successful.
 	RegisterUser(ctx context.Context, in *register.RegisterUserRequest, opts ...grpc.CallOption) (*register.RegisterUserResponse, error)
 }
 
@@ -56,9 +54,7 @@ func (c *identityProviderClient) RegisterUser(ctx context.Context, in *register.
 // All implementations must embed UnimplementedIdentityProviderServer
 // for forward compatibility
 type IdentityProviderServer interface {
-	// /login_user attempts to authenticate and create a session for a user and returns the session and the user if successful.
 	LoginUser(context.Context, *login.LoginUserRequest) (*login.LoginUserResponse, error)
-	// /register_user attempts to create a user and returns the user if successful.
 	RegisterUser(context.Context, *register.RegisterUserRequest) (*register.RegisterUserResponse, error)
 	mustEmbedUnimplementedIdentityProviderServer()
 }
