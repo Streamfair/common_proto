@@ -46,3 +46,24 @@ service IdentityProvider {
 		};
 	}
 }
+
+// grpcurl --cacert ssl/certs/ca-chain.cert.pem -d '{
+// 	"username": "Fabibi1",
+// 	"full_name": "Fabi Fabibi",
+// 	"email": "Fabibi1@test.de",
+// 	"password": "Fabibis",
+// 	"country_code": "TH",
+// 	"role_id": 1,
+// 	"status": "active"
+// }' localhost:9290 pb.IdentityProvider/RegisterUser
+
+// grpcurl --cacert ssl/certs/ca-chain.cert.pem -d '{
+//     "username": "test",
+//     "full_name": "test test",
+//     "email": "test@test.de",
+//     "password_hash": "superecret",
+//     "password_salt": "someSalt",
+//     "country_code": "DE",
+//     "role_id": 1,
+//     "status": "active"
+// }' localhost:9590 pb.UserService/CreateUser
