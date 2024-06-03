@@ -8,7 +8,7 @@ option go_package = "github.com/Streamfair/common_proto/AccountService/pb/accoun
 
 message AccountType {
      int64 id = 1;
-     string type = 2;
+     int32 type = 2;
      string permissions = 3;
      bool is_artist = 4;
      bool is_producer = 5;
@@ -21,7 +21,7 @@ message AccountType {
 
 message AccountTypes {
      int64 id = 1;
-     string type = 2;
+     int32 type = 2;
      string permissions = 3;
      bool is_artist = 4;
      bool is_producer = 5;
