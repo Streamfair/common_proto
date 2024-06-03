@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pb;
+
+import "account_type/account_type.proto";
+
+option go_package = "github.com/Streamfair/common_proto/AccountService/pb/account_type";
+
+message CreateAccountTypeRequest {
+    string type = 1;
+    string permissions = 2;
+    bool is_artist = 3;
+    bool is_producer = 4;
+    bool is_writer = 5;
+    bool is_label = 6;
+    bool is_user = 7;
+}
+
+message CreateAccountTypeResponse {
+    AccountType account = 1;
+}

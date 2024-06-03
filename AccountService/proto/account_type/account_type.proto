@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Streamfair/common_proto/AccountService/pb/account_type";
+
+message AccountType {
+     int64 id = 1;
+     string type = 2;
+     string permissions = 3;
+     bool is_artist = 4;
+     bool is_producer = 5;
+     bool is_writer = 6;
+     bool is_label = 7;
+     bool is_user = 8;
+     google.protobuf.Timestamp created_at = 9;
+     google.protobuf.Timestamp updated_at = 10;
+}
+
+message AccountTypes {
+     int64 id = 1;
+     string type = 2;
+     string permissions = 3;
+     bool is_artist = 4;
+     bool is_producer = 5;
+     bool is_writer = 6;
+     bool is_label = 7;
+     bool is_user = 8;
+     google.protobuf.Timestamp created_at = 9;
+     google.protobuf.Timestamp updated_at = 10;
+}
