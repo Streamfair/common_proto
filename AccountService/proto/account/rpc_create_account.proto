@@ -8,15 +8,16 @@ option go_package = "github.com/Streamfair/common_proto/AccountService/pb/accoun
 
 message CreateAccountRequest {
     int32 account_type = 1;
-    string owner = 2;
-    string bio = 3;
-    string status = 4;
-    string plan = 5;
-    string avatar_uri = 6;
-    int64 plays = 7;
-    int64 likes = 8;
-    int64 follows = 9;
-    int64 shares = 10;
+    string account_name = 2;
+    string owner = 3;
+    string bio = 4;
+    string status = 5;
+    string plan = 6;
+    string avatar_uri = 7;
+    int64 plays = 8;
+    int64 likes = 9;
+    int64 follows = 10;
+    int64 shares = 11;
 }
 
 message CreateAccountResponse {
