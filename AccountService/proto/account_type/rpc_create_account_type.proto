@@ -17,5 +17,5 @@ message CreateAccountTypeRequest {
 }
 
 message CreateAccountTypeResponse {
-    AccountType account = 1;
+    AccountType account_type = 1;
 }
