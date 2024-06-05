@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 type AccountServiceClient interface {
 	// Accounts
 	CreateAccount(ctx context.Context, in *account.CreateAccountRequest, opts ...grpc.CallOption) (*account.CreateAccountResponse, error)
+	ListAccountByOwner(ctx context.Context, in *account.ListAccountByOwnerRequest, opts ...grpc.CallOption) (*account.ListAccountByOwnerResponse, error)
 	// Accounttype
 	CreateAccountType(ctx context.Context, in *account_type.CreateAccountTypeRequest, opts ...grpc.CallOption) (*account_type.CreateAccountTypeResponse, error)
 }
@@ -43,6 +44,15 @@ func (c *accountServiceClient) CreateAccount(ctx context.Context, in *account.Cr
 	return out, nil
 }
 
+func (c *accountServiceClient) ListAccountByOwner(ctx context.Context, in *account.ListAccountByOwnerRequest, opts ...grpc.CallOption) (*account.ListAccountByOwnerResponse, error) {
+	out := new(account.ListAccountByOwnerResponse)
+	err := c.cc.Invoke(ctx, "/pb.AccountService/ListAccountByOwner", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *accountServiceClient) CreateAccountType(ctx context.Context, in *account_type.CreateAccountTypeRequest, opts ...grpc.CallOption) (*account_type.CreateAccountTypeResponse, error) {
 	out := new(account_type.CreateAccountTypeResponse)
 	err := c.cc.Invoke(ctx, "/pb.AccountService/CreateAccountType", in, out, opts...)
@@ -58,6 +68,7 @@ func (c *accountServiceClient) CreateAccountType(ctx context.Context, in *accoun
 type AccountServiceServer interface {
 	// Accounts
 	CreateAccount(context.Context, *account.CreateAccountRequest) (*account.CreateAccountResponse, error)
+	ListAccountByOwner(context.Context, *account.ListAccountByOwnerRequest) (*account.ListAccountByOwnerResponse, error)
 	// Accounttype
 	CreateAccountType(context.Context, *account_type.CreateAccountTypeRequest) (*account_type.CreateAccountTypeResponse, error)
 	mustEmbedUnimplementedAccountServiceServer()
@@ -69,6 +80,9 @@ type UnimplementedAccountServiceServer struct {
 
 func (UnimplementedAccountServiceServer) CreateAccount(context.Context, *account.CreateAccountRequest) (*account.CreateAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAccount not implemented")
+}
+func (UnimplementedAccountServiceServer) ListAccountByOwner(context.Context, *account.ListAccountByOwnerRequest) (*account.ListAccountByOwnerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListAccountByOwner not implemented")
 }
 func (UnimplementedAccountServiceServer) CreateAccountType(context.Context, *account_type.CreateAccountTypeRequest) (*account_type.CreateAccountTypeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAccountType not implemented")
@@ -104,6 +118,24 @@ func _AccountService_CreateAccount_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AccountService_ListAccountByOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(account.ListAccountByOwnerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).ListAccountByOwner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.AccountService/ListAccountByOwner",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).ListAccountByOwner(ctx, req.(*account.ListAccountByOwnerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _AccountService_CreateAccountType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(account_type.CreateAccountTypeRequest)
 	if err := dec(in); err != nil {
@@ -132,6 +164,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateAccount",
 			Handler:    _AccountService_CreateAccount_Handler,
+		},
+		{
+			MethodName: "ListAccountByOwner",
+			Handler:    _AccountService_ListAccountByOwner_Handler,
 		},
 		{
 			MethodName: "CreateAccountType",
