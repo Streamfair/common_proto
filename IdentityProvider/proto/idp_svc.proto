@@ -35,9 +35,9 @@ service IdentityProvider {
 		};
 	}
 
-	rpc RegisterUserAccount(RegisterUserAccountRequest) returns (UserAccount) {
+	rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse) {
 		option (google.api.http) = {
-			post: "/streamfair/v1/register_user_account"
+			post: "/streamfair/v1/register_user"
 			body: "*"
 		};
 		option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {

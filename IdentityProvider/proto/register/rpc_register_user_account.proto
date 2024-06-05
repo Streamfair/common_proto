@@ -3,56 +3,20 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
-import "register/user_account.proto";
-import "AccountService/proto/account/account.proto";
-
-import "AccountService/proto/account_type/account_type.proto";
+import "register/register_user.proto";
 
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/register";
 
-message CreateUserRequest {
-    string username = 1;
-    string full_name = 2;
-    string email = 3;
-    string password_hash = 4;
-    string password_salt = 5;
-    string country_code = 6;
-    int64  role_id = 7;
-    string status = 8;
+message RegisterUserRequest {
+    string username =  1;
+    string full_name =  2;
+    string email =  3;
+    string password =  4;
+    string country_code =  5;
+    int32 role_id =  6;
+    string status =  7;
 }
 
-message CreateAccountTypeRequest {
-    int32 type = 1;
-    string permissions = 2;
-    bool is_artist = 3;
-    bool is_producer = 4;
-    bool is_writer = 5;
-    bool is_label = 6;
-    bool is_user = 7;
-}
-
-message CreateAccountRequest {
-  int32 account_type = 1;
-  string account_name = 2;
-  string owner = 3;
-  string bio = 4;
-  string status = 5;
-  string plan = 6;
-  string avatar_uri = 7;
-  int64 plays = 8;
-  int64 likes = 9;
-  int64 follows = 10;
-  int64 shares = 11;
-}
-
-message RegisterUserAccountRequest {
-    CreateUserRequest user = 1;
-    CreateAccountRequest account = 2;
-    CreateAccountTypeRequest account_type = 3;
-}
-
-message UserAccount {
-    User user = 1;
-    Account account = 2;
-    AccountType account_type = 3;
+message RegisterUserResponse {
+  User user = 1;
 }
