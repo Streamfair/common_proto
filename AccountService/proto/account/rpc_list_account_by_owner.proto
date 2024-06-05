@@ -13,5 +13,5 @@ message ListAccountByOwnerRequest {
 }
 
 message ListAccountByOwnerResponse {
-    Accounts accounts = 1;
+    repeated Accounts accounts = 1;
 }
