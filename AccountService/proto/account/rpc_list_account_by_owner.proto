@@ -7,7 +7,9 @@ import "account/account.proto";
 option go_package = "github.com/Streamfair/common_proto/AccountService/pb/account";
 
 message ListAccountByOwnerRequest {
-    string owner = 3;
+    string owner = 1;
+    int32 limit = 2;
+    int32 offset = 3;
 }
 
 message ListAccountByOwnerResponse {
