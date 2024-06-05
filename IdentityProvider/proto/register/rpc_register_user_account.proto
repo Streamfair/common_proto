@@ -10,14 +10,15 @@ import "AccountService/proto/account_type/account_type.proto";
 
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/register";
 
-message RegisterUserRequest {
-    string username =  1;
-    string full_name =  2;
-    string email =  3;
-    string password =  4;
-    string country_code =  5;
-    int32 role_id =  6;
-    string status =  7;
+message CreateUserRequest {
+    string username = 1;
+    string full_name = 2;
+    string email = 3;
+    string password_hash = 4;
+    string password_salt = 5;
+    string country_code = 6;
+    int64  role_id = 7;
+    string status = 8;
 }
 
 message CreateAccountTypeRequest {
@@ -45,7 +46,7 @@ message CreateAccountRequest {
 }
 
 message RegisterUserAccountRequest {
-    RegisterUserRequest user = 1;
+    CreateUserRequest user = 1;
     CreateAccountRequest account = 2;
     CreateAccountTypeRequest account_type = 3;
 }
