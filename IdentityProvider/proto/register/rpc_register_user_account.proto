@@ -6,6 +6,8 @@ import "google/protobuf/timestamp.proto";
 import "register/user_account.proto";
 import "AccountService/proto/account/account.proto";
 
+import "AccountService/proto/account_type/account_type.proto";
+
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/register";
 
 message RegisterUserRequest {
@@ -16,6 +18,16 @@ message RegisterUserRequest {
     string country_code =  5;
     int32 role_id =  6;
     string status =  7;
+}
+
+message CreateAccountTypeRequest {
+    int32 type = 1;
+    string permissions = 2;
+    bool is_artist = 3;
+    bool is_producer = 4;
+    bool is_writer = 5;
+    bool is_label = 6;
+    bool is_user = 7;
 }
 
 message CreateAccountRequest {
@@ -35,9 +47,11 @@ message CreateAccountRequest {
 message RegisterUserAccountRequest {
     RegisterUserRequest user = 1;
     CreateAccountRequest account = 2;
+    CreateAccountTypeRequest account_type = 3;
 }
 
 message UserAccount {
     User user = 1;
     Account account = 2;
+    AccountType account_type = 3;
 }
