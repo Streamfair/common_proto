@@ -21,7 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type IdentityProviderClient interface {
 	LoginUser(ctx context.Context, in *login.LoginUserRequest, opts ...grpc.CallOption) (*login.LoginUserResponse, error)
-	RegisterUser(ctx context.Context, in *register.RegisterUserRequest, opts ...grpc.CallOption) (*register.RegisterUserResponse, error)
+	RegisterUser(ctx context.Context, in *register.RegisterUserAccountRequest, opts ...grpc.CallOption) (*register.UserAccount, error)
 }
 
 type identityProviderClient struct {
@@ -41,8 +41,8 @@ func (c *identityProviderClient) LoginUser(ctx context.Context, in *login.LoginU
 	return out, nil
 }
 
-func (c *identityProviderClient) RegisterUser(ctx context.Context, in *register.RegisterUserRequest, opts ...grpc.CallOption) (*register.RegisterUserResponse, error) {
-	out := new(register.RegisterUserResponse)
+func (c *identityProviderClient) RegisterUser(ctx context.Context, in *register.RegisterUserAccountRequest, opts ...grpc.CallOption) (*register.UserAccount, error) {
+	out := new(register.UserAccount)
 	err := c.cc.Invoke(ctx, "/pb.IdentityProvider/RegisterUser", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -55,7 +55,7 @@ func (c *identityProviderClient) RegisterUser(ctx context.Context, in *register.
 // for forward compatibility
 type IdentityProviderServer interface {
 	LoginUser(context.Context, *login.LoginUserRequest) (*login.LoginUserResponse, error)
-	RegisterUser(context.Context, *register.RegisterUserRequest) (*register.RegisterUserResponse, error)
+	RegisterUser(context.Context, *register.RegisterUserAccountRequest) (*register.UserAccount, error)
 	mustEmbedUnimplementedIdentityProviderServer()
 }
 
@@ -66,7 +66,7 @@ type UnimplementedIdentityProviderServer struct {
 func (UnimplementedIdentityProviderServer) LoginUser(context.Context, *login.LoginUserRequest) (*login.LoginUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoginUser not implemented")
 }
-func (UnimplementedIdentityProviderServer) RegisterUser(context.Context, *register.RegisterUserRequest) (*register.RegisterUserResponse, error) {
+func (UnimplementedIdentityProviderServer) RegisterUser(context.Context, *register.RegisterUserAccountRequest) (*register.UserAccount, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
 }
 func (UnimplementedIdentityProviderServer) mustEmbedUnimplementedIdentityProviderServer() {}
@@ -101,7 +101,7 @@ func _IdentityProvider_LoginUser_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _IdentityProvider_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(register.RegisterUserRequest)
+	in := new(register.RegisterUserAccountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -113,7 +113,7 @@ func _IdentityProvider_RegisterUser_Handler(srv interface{}, ctx context.Context
 		FullMethod: "/pb.IdentityProvider/RegisterUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IdentityProviderServer).RegisterUser(ctx, req.(*register.RegisterUserRequest))
+		return srv.(IdentityProviderServer).RegisterUser(ctx, req.(*register.RegisterUserAccountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
