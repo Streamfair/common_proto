@@ -3,7 +3,7 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
-import "register/registered_user.proto";
+import "register/user_account.proto";
 
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/register";
 
@@ -18,5 +18,5 @@ message RegisterUserAccountRequest {
 }
 
 message RegisterUserAccountResponse {
-  RegisteredUser registeredUser = 1;
+  UserAccount user_account = 1;
 }
