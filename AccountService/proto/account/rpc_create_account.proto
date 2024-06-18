@@ -12,7 +12,7 @@ message CreateAccountRequest {
     string owner = 3;
     string bio = 4;
     string status = 5;
-    string plan = 6;
+    int32 plan = 6;
     string avatar_uri = 7;
     int64 plays = 8;
     int64 likes = 9;
