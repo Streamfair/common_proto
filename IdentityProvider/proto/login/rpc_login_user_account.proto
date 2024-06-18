@@ -7,12 +7,12 @@ import "login/user_login.proto";
 
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/login";
 
-message LoginUserRequest {
+message LoginUserAccountRequest {
   string username =  1;
   string password =  2;
 }
 
-message LoginUserResponse {
+message LoginUserAccountResponse {
   User_login user = 1;
   string session_id = 2;
   string access_token = 3;
