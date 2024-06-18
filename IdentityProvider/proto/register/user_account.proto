@@ -18,7 +18,7 @@ message UserAccount {
      int32                     account_type = 10;
      string                    account_name = 11;
      string                    account_bio = 12;
-     string                    account_plan = 13;
+     int32                     account_plan = 13;
      string                    account_avatar_uri = 14;
      google.protobuf.Timestamp last_login_at = 15;
      google.protobuf.Timestamp username_changed_at = 16;
@@ -41,7 +41,7 @@ message UserAccounts {
      int32                     account_type = 10;
      string                    account_name = 11;
      string                    account_bio = 12;
-     string                    account_plan = 13;
+     int32                     account_plan = 13;
      string                    account_avatar_uri = 14;
      google.protobuf.Timestamp last_login_at = 15;
      google.protobuf.Timestamp username_changed_at = 16;

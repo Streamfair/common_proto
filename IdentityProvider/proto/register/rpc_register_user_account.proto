@@ -18,7 +18,7 @@ message RegisterUserAccountRequest {
     int32 account_type = 8;
     string account_name = 9;
     string account_bio = 10;
-    string account_plan = 11;
+    int32 account_plan = 11;
     string account_avatar_uri = 12;
 }
 
