@@ -15,6 +15,11 @@ message RegisterUserAccountRequest {
     string country_code =  5;
     int32 role_id =  6;
     string status =  7;
+    int32 account_type = 8;
+    string account_name = 9;
+    string account_bio = 10;
+    string account_plan = 11;
+    string account_avatar_uri = 12;
 }
 
 message RegisterUserAccountResponse {
