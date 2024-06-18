@@ -15,7 +15,7 @@ message UserAccount {
      string                    country_code = 7;
      int64                     role_id = 8;
      string                    status = 9;
-     string                    account_type = 10;
+     int32                     account_type = 10;
      string                    account_name = 11;
      string                    account_bio = 12;
      string                    account_plan = 13;
@@ -38,7 +38,7 @@ message UserAccounts {
      string                    country_code = 7;
      int64                     role_id = 8;
      string                    status = 9;
-     string                    account_type = 10;
+     int32                     account_type = 10;
      string                    account_name = 11;
      string                    account_bio = 12;
      string                    account_plan = 13;
