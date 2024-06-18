@@ -3,9 +3,9 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
-option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/register";
+option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/login";
 
-message User {
+message LoggedInUser {
      int64                     id = 1;
      string                    username = 2;
      string                    full_name = 3;
@@ -23,7 +23,7 @@ message User {
      google.protobuf.Timestamp updated_at = 15;
 }
 
-message Users {
+message LoggedInUsers {
      int64                     id = 1;
      string                    username = 2;
      string                    full_name = 3;

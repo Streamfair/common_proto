@@ -3,7 +3,7 @@ syntax = "proto3";
 package pb;
 
 import "google/protobuf/timestamp.proto";
-import "login/user_login.proto";
+import "login/loggedin_user.proto";
 
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/login";
 
@@ -13,7 +13,7 @@ message LoginUserAccountRequest {
 }
 
 message LoginUserAccountResponse {
-  User_login user = 1;
+  LoggedInUser loggedInUser = 1;
   string session_id = 2;
   string access_token = 3;
   string refresh_token = 4;
