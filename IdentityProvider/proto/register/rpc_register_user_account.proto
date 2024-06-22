@@ -24,4 +24,6 @@ message RegisterUserAccountRequest {
 
 message RegisterUserAccountResponse {
   UserAccount user_account = 1;
+  string account = 2;
+  string account_type = 3; 
 }
