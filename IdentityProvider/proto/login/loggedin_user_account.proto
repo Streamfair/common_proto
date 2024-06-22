@@ -23,7 +23,7 @@ message LoggedInUserAccount {
      google.protobuf.Timestamp updated_at = 15;
 }
 
-message LoggedInUsers {
+message LoggedInUserAccounts {
      int64                     id = 1;
      string                    username = 2;
      string                    full_name = 3;
