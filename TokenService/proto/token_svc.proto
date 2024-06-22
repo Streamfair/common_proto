@@ -15,7 +15,6 @@ import "token/rpc_list_revoked_tokens.proto";
 import "token/rpc_get_token_by_id.proto";
 import "token/rpc_get_token_by_value.proto";
 import "token/rpc_list_tokens.proto";
-import "token/rpc_update_token.proto";
 import "token/rpc_verify_token.proto";
 
 import "refresh_token/rpc_create_refresh_token.proto";
@@ -27,7 +26,6 @@ import "refresh_token/rpc_list_revoked_refresh_tokens.proto";
 import "refresh_token/rpc_get_refresh_token_by_id.proto";
 import "refresh_token/rpc_get_refresh_token_by_value.proto";
 import "refresh_token/rpc_list_refresh_tokens.proto";
-import "refresh_token/rpc_update_refresh_token.proto";
 import "refresh_token/rpc_verify_refresh_token.proto";
 
 option go_package = "github.com/Streamfair/common_proto/TokenService/pb";
@@ -140,17 +138,6 @@ service TokenService {
 		};
 	}
 
-	rpc UpdateToken(UpdateTokenRequest) returns (UpdateTokenResponse) {
-		option (google.api.http) = {
-			patch: "/streamfair/v1/update_token"
-			body: "*"
-		};
-		option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-			description: "Update a token.",
-			summary: "Update Token"
-		};
-	}
-
 	rpc VerifyToken(VerifyTokenRequest) returns (VerifyTokenResponse) {
 		option (google.api.http) = {
 			post: "/streamfair/v1/verify_token"
@@ -255,17 +242,6 @@ service TokenService {
 		option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
 			description: "List all refresh tokens.",
 			summary: "List Refresh Tokens"
-		};
-	}
-
-	rpc UpdateRefreshToken(UpdateRefreshTokenRequest) returns (UpdateRefreshTokenResponse) {
-		option (google.api.http) = {
-			patch: "/streamfair/v1/update_refresh_token"
-			body: "*"
-		};
-		option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-			description: "Update a refresh token.",
-			summary: "Update Refresh Token"
 		};
 	}
 
