@@ -21,8 +21,6 @@ message Session{
   string refresh_token = 5;
   google.protobuf.Timestamp session_created_at = 6;
   google.protobuf.Timestamp session_expires_at = 7;
-  google.protobuf.Timestamp access_token_expires_at = 8;
-  google.protobuf.Timestamp refresh_token_expires_at = 9;
 }
 
 message LoginUserAccountResponse {
