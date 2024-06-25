@@ -12,7 +12,7 @@ message LoginUserAccountRequest {
   string password =  2;
 }
 
-message Session{
+message SessionData {
   string session_id = 1;
   bool is_blocked = 2;
   string user_agent = 3;
@@ -27,5 +27,5 @@ message Session{
 
 message LoginUserAccountResponse {
   UserAccount user_account = 1;
-  Session session = 2;
+  SessionData session = 2;
 }
