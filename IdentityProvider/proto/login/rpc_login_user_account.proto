@@ -20,7 +20,7 @@ message Session{
   bool is_blocked = 4;
   string access_token = 5;
   string refresh_token = 6;
-  google.protobuf.Timestamp sessopn_created_at = 7;
+  google.protobuf.Timestamp session_created_at = 7;
   google.protobuf.Timestamp session_expires_at = 8;
   google.protobuf.Timestamp access_token_expires_at = 9;
   google.protobuf.Timestamp refresh_token_expires_at = 10;
