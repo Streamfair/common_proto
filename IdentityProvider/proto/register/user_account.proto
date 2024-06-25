@@ -53,8 +53,20 @@ message UserData {
      google.protobuf.Timestamp updated_at = 15;
 }
 
+message Session {
+     string uuid = 1;
+     string username = 2;
+     string refresh_token = 3;
+     string user_agent = 4;
+     string client_ip = 5;
+     bool is_blocked = 6;
+     google.protobuf.Timestamp expires_at = 7;
+     google.protobuf.Timestamp created_at = 8;
+}
+ 
 message UserAccount {
      UserData user = 1;
      AccountData account = 2;
      AccountTypeData account_type = 3;
+     Session session = 4;
 }
