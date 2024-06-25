@@ -8,8 +8,8 @@ option go_package = "github.com/Streamfair/common_proto/AccountService/pb/accoun
 
 message Account {
      int64 id = 1;
-     int32 account_type = 2;
-     string account_name = 3;
+     string account_name = 2;
+     int32 account_type = 3;
      string owner = 4;
      string bio = 5;
      string status = 6;
@@ -25,16 +25,17 @@ message Account {
 
 message Accounts {
      int64 id = 1;
-     int32 account_type = 2;
-     string owner = 3;
-     string bio = 4;
-     string status = 5;
-     int32 plan = 6;
-     string avatar_uri = 7;
-     int64 plays = 8;
-     int64 likes = 9;
-     int64 follows = 10;
-     int64 shares = 11;
-     google.protobuf.Timestamp created_at = 12;
-     google.protobuf.Timestamp updated_at = 13;
+     string account_name = 2;
+     int32 account_type = 3;
+     string owner = 4;
+     string bio = 5;
+     string status = 6;
+     int32 plan = 7;
+     string avatar_uri = 8;
+     int64 plays = 9;
+     int64 likes = 10;
+     int64 follows = 11;
+     int64 shares = 12;
+     google.protobuf.Timestamp created_at = 13;
+     google.protobuf.Timestamp updated_at = 14;
 }
