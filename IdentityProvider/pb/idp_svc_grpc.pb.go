@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 type IdentityProviderClient interface {
 	LoginUserAccount(ctx context.Context, in *login.LoginUserAccountRequest, opts ...grpc.CallOption) (*login.LoginUserAccountResponse, error)
 	RegisterUserAccount(ctx context.Context, in *register.RegisterUserAccountRequest, opts ...grpc.CallOption) (*register.RegisterUserAccountResponse, error)
+	GetUserAccountByUsername(ctx context.Context, in *register.GetUserAccountByUsernameRequest, opts ...grpc.CallOption) (*register.GetUserAccountByUsernameResponse, error)
 }
 
 type identityProviderClient struct {
@@ -50,12 +51,22 @@ func (c *identityProviderClient) RegisterUserAccount(ctx context.Context, in *re
 	return out, nil
 }
 
+func (c *identityProviderClient) GetUserAccountByUsername(ctx context.Context, in *register.GetUserAccountByUsernameRequest, opts ...grpc.CallOption) (*register.GetUserAccountByUsernameResponse, error) {
+	out := new(register.GetUserAccountByUsernameResponse)
+	err := c.cc.Invoke(ctx, "/pb.IdentityProvider/GetUserAccountByUsername", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // IdentityProviderServer is the server API for IdentityProvider service.
 // All implementations must embed UnimplementedIdentityProviderServer
 // for forward compatibility
 type IdentityProviderServer interface {
 	LoginUserAccount(context.Context, *login.LoginUserAccountRequest) (*login.LoginUserAccountResponse, error)
 	RegisterUserAccount(context.Context, *register.RegisterUserAccountRequest) (*register.RegisterUserAccountResponse, error)
+	GetUserAccountByUsername(context.Context, *register.GetUserAccountByUsernameRequest) (*register.GetUserAccountByUsernameResponse, error)
 	mustEmbedUnimplementedIdentityProviderServer()
 }
 
@@ -68,6 +79,9 @@ func (UnimplementedIdentityProviderServer) LoginUserAccount(context.Context, *lo
 }
 func (UnimplementedIdentityProviderServer) RegisterUserAccount(context.Context, *register.RegisterUserAccountRequest) (*register.RegisterUserAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterUserAccount not implemented")
+}
+func (UnimplementedIdentityProviderServer) GetUserAccountByUsername(context.Context, *register.GetUserAccountByUsernameRequest) (*register.GetUserAccountByUsernameResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserAccountByUsername not implemented")
 }
 func (UnimplementedIdentityProviderServer) mustEmbedUnimplementedIdentityProviderServer() {}
 
@@ -118,6 +132,24 @@ func _IdentityProvider_RegisterUserAccount_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _IdentityProvider_GetUserAccountByUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(register.GetUserAccountByUsernameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IdentityProviderServer).GetUserAccountByUsername(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.IdentityProvider/GetUserAccountByUsername",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IdentityProviderServer).GetUserAccountByUsername(ctx, req.(*register.GetUserAccountByUsernameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // IdentityProvider_ServiceDesc is the grpc.ServiceDesc for IdentityProvider service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -132,6 +164,10 @@ var IdentityProvider_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RegisterUserAccount",
 			Handler:    _IdentityProvider_RegisterUserAccount_Handler,
+		},
+		{
+			MethodName: "GetUserAccountByUsername",
+			Handler:    _IdentityProvider_GetUserAccountByUsername_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

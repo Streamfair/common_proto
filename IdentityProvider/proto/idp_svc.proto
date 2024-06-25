@@ -7,6 +7,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 
 import "login/rpc_login_user_account.proto";
 import "register/rpc_register_user_account.proto";
+import "register/rpc_get_user_account_by_username.proto";
 
 option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb";
 
@@ -38,6 +39,17 @@ service IdentityProvider {
 	rpc RegisterUserAccount(RegisterUserAccountRequest) returns (RegisterUserAccountResponse) {
 		option (google.api.http) = {
 			post: "/streamfair/v1/register_user_account"
+			body: "*"
+		};
+		option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+			description: "add description here",
+			summary: "add summary here",
+		};
+	}
+
+	rpc GetUserAccountByUsername(GetUserAccountByUsernameRequest) returns (GetUserAccountByUsernameResponse) {
+		option (google.api.http) = {
+			post: "/streamfair/v1/get_user_account_by_username"
 			body: "*"
 		};
 		option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
