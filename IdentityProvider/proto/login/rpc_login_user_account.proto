@@ -10,7 +10,6 @@ option go_package = "github.com/Streamfair/common_proto/IdentityProvider/pb/logi
 message LoginUserAccountRequest {
   string username =  1;
   string password =  2;
-  int64 account_id = 3;
 }
 
 message Session{
