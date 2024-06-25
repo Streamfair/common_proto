@@ -13,11 +13,20 @@ message LoginUserAccountRequest {
   int64 account_id = 3;
 }
 
+message Session{
+  string session_id = 1;
+  string user_agent = 2;
+  string client_ip = 3;
+  bool is_blocked = 4;
+  string access_token = 5;
+  string refresh_token = 6;
+  google.protobuf.Timestamp sessopn_created_at = 7;
+  google.protobuf.Timestamp session_expires_at = 8;
+  google.protobuf.Timestamp access_token_expires_at = 9;
+  google.protobuf.Timestamp refresh_token_expires_at = 10;
+}
+
 message LoginUserAccountResponse {
   UserAccount user_account = 1;
-  string session_id = 2;
-  string access_token = 3;
-  string refresh_token = 4;
-  google.protobuf.Timestamp access_token_expires_at = 5;
-  google.protobuf.Timestamp refresh_token_expires_at = 6;
+  Session session = 2;
 }
